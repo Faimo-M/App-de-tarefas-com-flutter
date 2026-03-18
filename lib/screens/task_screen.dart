@@ -46,7 +46,17 @@ class _TasksScreenState extends State<TasksScreen> {
            child: ListView.builder(
                itemCount: tarefas.length,
              itemBuilder: (context, index){
-                 return ListTile(title: Text(tarefas[index]));
+                 return ListTile(
+                     title: Text(tarefas[index]),
+                 trailing: IconButton( 
+                     icon: const Icon(Icons.delete),
+                 onPressed: (){
+                       setState(() {
+                         tarefas.removeAt(index);
+                       });
+                 },
+                 ),
+                 );
              },
            ),
        ),
